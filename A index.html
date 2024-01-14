@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Juguemos de memoria</title>
+    <link rel="icon" type="image/png" href="logo inicio.jpeg">
+    <style>
+        /* Estilos para el contenedor principal */
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        header {
+            background-color: lime;
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            color: white;
+            margin: 0;
+        }
+        header h2 {
+            color: white;
+            margin-top: 5px;
+        }
+        header img {
+            max-width: 20%;
+            height: auto;
+            margin-top: 20px;
+        }
+        /* Estilos para el título */
+        h1 {
+            margin: 0;
+        }
+        /* Estilos para el rectángulo de botones */
+        .botones-container {
+            display: flex;
+            justify-content: space-between; /* Espacio entre botones y menú */
+            align-items: center;
+            background-color: lime;
+            padding: 15px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        /* Estilos para el menú desplegable */
+        select {
+            margin-left: auto; /* Empuja el menú a la derecha */
+            padding: 8px;
+            border-radius: 5px;
+        }
+        /* Estilos para los botones */
+        .boton {
+            text-decoration: none;
+            color: white;
+            padding: 10px 25px; /* Ajuste de tamaño de los botones */
+            border-radius: 5px;
+            font-size: 18px; /* Ajuste del tamaño del texto */
+        }
+        /* Estilos para el mosaico de imágenes y cuadros de texto */
+        .mosaico-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .mosaico-item {
+            flex: 0 0 calc(33.33% - 20px);
+            margin: 10px;
+            position: relative;
+        }
+        .mosaico-item img {
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .mosaico-text {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            width: 100%;
+            padding: 10px;
+            text-align: center;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .mosaico-item:hover .mosaico-text {
+            opacity: 1;
+        }
+        /* Estilos para la sección de noticias */
+        .noticias-section {
+            margin-top: 20px;
+            text-align: center;
+        }
+        /* Estilos para la noticia principal */
+        .noticia-principal {
+            margin-top: 20px;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            width: 100%; /* Ocupar todo el ancho */
+            box-sizing: border-box; /* Incluir padding en el ancho total */
+        }
+        .noticia-imagen {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .resumen-noticia {
+            margin-bottom: 20px;
+        }
+        /* Estilos para los subcuadros más pequeños */
+        .subcuadros-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .subcuadro {
+            width: calc(50% - 10px);
+            margin-bottom: 20px;
+            text-align: center;
+            padding: 20px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            box-sizing: border-box;
+        }
+        .subcuadro-imagen {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        .subcuadro-resumen {
+            margin-bottom: 20px;
+        }
+        .ver-mas {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 5px 10px;
+            background-color: lime;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        /* Estilos para el botón de noticias anteriores */
+        .noticias-anteriores {
+            margin-top: 20px;
+        }
+        .btn-noticias-anteriores {
+            background-color: lime;
+            color: white;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            text-decoration: none; /* Eliminar subrayado en el enlace */
+        }
+        /* Estilos para el pie de página y los botones de redes sociales */
+        footer {
+            margin-top: 20px;
+            background-color: rgb(233, 238, 233);
+            padding: 20px;
+            color: rgba(255, 255, 255, 0);
+        }
+       
+        .redes-sociales {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+/* Estilo para los enlaces de redes sociales */
+.redes-sociales a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+}
+
+/* Estilo para las imágenes de redes sociales */
+.redes-sociales img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%; /* Usar 50% para hacer la imagen circular */
+    object-fit: cover; /* Evita que la imagen se estire y mantiene su forma original */
+}
+/* Media queries para dispositivos más pequeños */
+@media screen and (max-width: 768px) {
+    .mosaico-item {
+        flex: 0 0 calc(100% - 20px);
+    }
+
+    .subcuadro {
+        width: calc(100% - 20px);
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Encabezado con el título y subtítulo -->
+        <header>
+            <h1>Juguemos de Memoria</h1>
+            <img src="Logo.png" alt="Logo de la página">
+            <h2>El lugar para los fanáticos del deporte</h2>
+        </header>
+
+        <!-- Rectángulo largo con botones y menú desplegable -->
+        <div class="botones-container">
+            <div>
+                <a href="A Futbol Nacional.html" class="boton">Fútbol Nacional</a>
+                <a href="A Futbol internacional.html" class="boton">Fútbol Internacional</a>
+                <a href="A Golf.html" class="boton">Golf</a>
+                <a href="A Golf.html" class="boton">Tenis</a>
+                <a href="A Quienes somos.html" class="boton">Quiénes somos</a>
+            </div>
+            <!-- Menú desplegable -->
+            <select onchange="location = this.value;">
+                <option value="#" selected disabled>Más deportes</option>
+                <option value="A futbol Nacional.html">Fútbol Nacional</option>
+                <option value="A Golf.html">Golf</option>
+                <option value="A Tennis.html">Tenis</option>
+                <option value="A Quienes somos.html">Quiénes somos</option>
+            </select>
+        </div>
+
+        <!-- Mosaico con imágenes y cuadros de texto -->
+        <div class="mosaico-container">
+            <div class="mosaico-item">
+                <img src="Licha.png" alt="Imagen 1" onclick="window.location.href='noticia1.html'">
+                <div class="mosaico-text"><a href="A Licha.html">Tras cuatro meses, Lisandro Martínez volvió a las canchas en Manchester United</a></div>
+            </div>
+            <div class="mosaico-item">
+                <img src="Grillo.jpg" alt="Imagen 2" onclick="window.location.href='noticia2.html'">
+                <div class="mosaico-text"><a href="A Grillo.html">Emiliano Grillo se mete en la pelea por el Sony Open in Hawaii de cara a la ronda final</a></div>
+            </div>
+            <div class="mosaico-item">
+                <img src="Djkovic.jpeg" alt="Imagen 3" onclick="window.location.href='noticia3.html'">
+                <div class="mosaico-text"><a href="A Djkovic.html">El sufrido debut de Novak Djokovic en el Abierto de Australia</a></div>
+            </div>
+        </div>
+
+        <!-- Sección de noticias -->
+        <div class="noticias-section">
+            <h2>Noticias</h2>
+            
+            <!-- Noticia principal -->
+            <div class="noticia-principal">
+                <h2><a href="A Prueba Noticia.Html">Zenón, durísimo por la falta de definición de su pase a Boca: "Deberían preguntarle al presidente de Unión que es el que pone trabas”</a></h2>
+                <p>Fecha de publicación: 14 de enero de 2024</p>
+                <p>Autor: José Ignacio Ávila</p>
+                <img src="Zenon.png" alt="Imagen Principal de la Noticia" class="noticia-imagen">
+                <div class="resumen-noticia">
+                    <p>El jugador explotó contra Luis Spahn ante la dilatación de las negociaciones. "Tengo la cabeza en cualquier lado. Necesito que todo esto se defina lo más rápido posible para estar más tranquilo", afirmó.</p>
+                </div>
+                <a href="A Prueba Noticia.Html" class= "ver-mas"> Ver más</a>
+            </div>
+
+            <!-- Contenedor para los subcuadros -->
+            <div class="subcuadros-container">
+                <!-- Subcuadro 1 -->
+                <div class="subcuadro">
+                    <h2><a href="A Licha.html">Tras cuatro meses, Lisandro Martínez volvió a las canchas en Manchester United</a></h2>
+                    <p>Fecha de publicación: 14 de enero de 2024</p>
+                    <p>Autor: José Ignacio Avila</p>
+                    <img src="Licha.png" alt="Imagen de la Noticia Subcuadro 1" class="subcuadro-imagen">
+                    <div class="subcuadro-resumen">
+                        <p>El defensor campeón del mundo con la Selección Argentina tuvo su esperado regreso: jugó media hora en el empate ante Tottenham por la Premier League.</p>
+                    </div>
+                    <a href="A Licha.html" class="ver-mas">Ver más</a>
+                </div>
+
+                <!-- Subcuadro 2 -->
+                <div class="subcuadro">
+                    <h2><a href="A Grillo.html">Emiliano Grillo se mete en la pelea por el Sony Open in Hawaii de cara a la ronda final</a></h2>
+                    <p>Fecha de publicación: 15 de enero de 2024</p>
+                    <p>Autor: José Ignacio Avila</p>
+                    <img src="Grillo.jpg" alt="Imagen de la Noticia Subcuadro 2" class="subcuadro-imagen">
+                    <div class="subcuadro-resumen">
+                        <p>Con una gran vuelta de 63 golpes y de ocho birdies, el Profesional de la Provincia del Chaco trepó al noveno puesto para quedar a cuatro golpes de distancia de los punteros actuales.</p>
+                    </div>
+                    <a href="A Grillo.html" class="ver-mas">Ver más</a>
+                </div>
+
+                <!-- Subcuadro 3 -->
+                <div class="subcuadro">
+                    <h2><a href="A Djkovic.html">El sufrido debut de Novak Djokovic en el Abierto de Australia</a></h2>
+                    <p>Fecha de publicación: 16 de enero de 2024</p>
+                    <p>Autor: Ana Gómez</p>
+                    <img src="Djkovic.jpeg" alt="Imagen de la Noticia Subcuadro 3" class="subcuadro-imagen">
+                    <div class="subcuadro-resumen">
+                        <p>En la primera ronda del Abierto de Australia, Novak Djokovic (N°1) venció por 6-2, 6-7 (5), 6-3 y 6-4 a Dino Prizmic (178°), quien llegó desde la qualy y jugó su primer cuadro principal de un Grand Slam.</p>
+                    </div>
+                    <a href="A Djkovic.html" class="ver-mas">Ver más</a>
+                </div>
+
+                <!-- Subcuadro 4 -->
+                <div class="subcuadro">
+                    <h2><a href="noticia_subcuadro4.html">Título de la Noticia Subcuadro 4</a></h2>
+                    <p>Fecha de publicación: 17 de enero de 2024</p>
+                    <p>Autor: Carlos Martínez</p>
+                    <img src="colo barco.jpg" alt="Imagen de la Noticia Subcuadro 4" class="subcuadro-imagen">
+                    <div class="subcuadro-resumen">
+                        <p>Línea de resumen 1...</p>
+                        <p>Línea de resumen 2...</p>
+                        <p>Línea de resumen 3...</p>
+                    </div>
+                    <a href="noticia_subcuadro4.html" class="ver-mas">Ver más</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Enlace de Noticias Anteriores -->
+        <div class="noticias-anteriores">
+            <a href="#noticias-anteriores" class="btn-noticias-anteriores">Noticias Anteriores</a>
+        </div>
+    </div>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="redes-sociales">
+            <a href="https://www.youtube.com/@juguemosdememoria" target="_blank"><img src="youtube.png" alt="Facebook"></a>
+            <a href="https://www.instagram.com/juguemosdememoria10/" target="_blank"><img src="Instagram-Logo.png" alt="Twitter"></a>
+            <a href="https://www.twitch.tv/juguemos_de_memoria" target="_blank"><img src="twitch.png" alt="Instagram"></a>
+            <a href="https://open.spotify.com/show/0OKmLhYKZC0h3ra4sRiGpk?go=1&sp_cid=8ace82317ac8131b6b7ec1083e53d176&utm_source=embed_player_p&utm_medium=desktop&nd=1&dlsi=71b29f19624b4003" target="_blank"><img src="rockandpop.png" alt="LinkedIn"></a>
+        </div>
+        <p>El lugar para los fanáticos del deporte</p>
+    </footer>
+</body>
+</html>

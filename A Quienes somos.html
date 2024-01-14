@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juguemos de Memoria</title>
+    <link rel="icon" type="image/png" href="logo inicio.jpeg">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: white;
+            color: black;
+        }
+
+        header {
+            margin: 50px 0;
+            background-color: lime;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        #highlight-box {
+            background-color: lime;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #highlight-box a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            margin-right: 15px;
+        }     #more-sports-dropdown {
+            margin-left: auto; /* Empuja el menú a la derecha */
+            text-align: right; /* Alinea el texto a la derecha */
+        }
+       
+        /* Estilos para los botones */
+        .boton {
+            text-decoration: none;
+            color: white;
+            padding: 10px 25px; /* Ajuste de tamaño de los botones */
+            border-radius: 5px;
+            font-size: 18px; /* Ajuste del tamaño del texto */
+        }
+
+        .news-title {
+            text-align: center;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .author-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .author-box {
+            width: calc(25% - 20px);
+            margin: 20px 0;
+            border: 1px solid #ccc;
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: left;
+        }
+
+        .author-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 10px;
+        }
+
+        .author-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .author-subtitle {
+            font-style: italic;
+            margin-bottom: 10px;
+        }
+
+        .author-works {
+            text-align: justify;
+        }
+
+        .about-us {
+            max-width: 800px;
+            margin: 20px 0;
+            text-align: justify;
+        }
+        @media screen and (max-width: 768px) {
+    .mosaico-item {
+        flex: 0 0 calc(100% - 20px);
+    }
+
+    .subcuadro {
+        width: calc(100% - 20px);
+    }
+}
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="color: white;">Quienes somos</h1>
+        <div id="highlight-box">
+            <div>
+                <a href="index.html" style="font-size: 18px;">Página principal</a>
+                <a href="A Futbol Nacional.html" style="font-size: 18px;">Fútbol Nacional</a>
+                <a href="A Futbol internacional.html" style="font-size: 18px;">Futbol Internacional</a>
+                <a href="A Tennis.html" style="font-size: 18px;">Tenis</a>
+                <a href="A Golf.html" style="font-size: 18px;">Golf</a>
+                <div style="text-align: right; margin-right: 20px;">
+                    <select onchange="location = this.value;">
+                        <option value="#" selected disabled>Más deportes</option>
+                        <option value="futbol_Nacional.html">Fútbol Nacional</option>
+                        <option value="Golf.html">Golf</option>
+                        <option value="Tennis.html">Tenis</option>
+                        <option value="Quienes_somos.html">Quiénes somos</option>
+                    </select>
+                </div>
+                
+    </header>
+
+    <div class="about-us">
+        <p>Somos un grupo de jóvenes fanáticos del deporte, estudiantes de Periodismo, que a través de esta página realizamos nuestros informes, prácticas periodísticas y escribimos noticias, entre otras cosas. Si quieres aprender sobre el deporte, estás en el lugar correcto. 'Juguemos de Memoria', el espacio para los fanáticos del deporte.</p>
+    </div>
+
+    <div class="author-container">
+        <div class="author-box">
+            <img class="author-image" src="José Web.jpeg" alt="Foto del Escritor 1">
+            <div class="author-title">José Ignacio Avila </div>
+            <div class="author-subtitle">Escritor</div>
+            <div class="author-works">Estudiante de Periodismo en la Universidad de Palermo. Conductor de radio en Rock and Pop Tucumán con su programa 'Juguemos de Memoria'. Escritor para la página de Instagram 'Fútbol Análisis'.</div>
+        </div>
+
+        <div class="author-box">
+            <img class="author-image" src="Marcos Web.jpeg" alt="Foto del Escritor 2">
+            <div class="author-title">Marcos Antonini</div>
+            <div class="author-subtitle">Escritor</div>
+            <div class="author-works">Estudiante de Comunicación Social en la Universidad Austral. Escritor especializado en golf juvenil en 'No está dada', una página de Instagram con más de 14,000 seguidores.</div>
+        </div>
+
+        <div class="author-box">
+            <img class="author-image" src="url_de_la_foto_3.jpg" alt="Foto del Escritor 3">
+            <div class="author-title">Lucas Juarez</div>
+            <div class="author-subtitle">Escritor</div>
+            <div class="author-works">Estudiante de Periodismo Deportivo en Mendoza. Administrador de la página 'Fútbol Análisis', una cuenta de Instagram con más de 25,000 seguidores, donde realiza análisis de partidos de todo el fútbol mundial, siendo esta su especialidad. También cubre las noticias de los clubes de primera división, como Godoy Cruz e Independiente Rivadavia.</div>
+        </div>
+
+        <div class="author-box">
+            <img class="author-image" src="url_de_la_foto_4.jpg" alt="Foto del Escritor 4">
+            <div class="author-title">Nombre del 4to escritor</div>
+            <div class="author-subtitle">Escritor</div>
+            <div class="author-works">Texto sobre los trabajos del Escritor 4...</div>
+        </div>
+    </div>
+
+    <footer>
+        <div id="noticias-text">
+            <p>Noticias</p>
+        </div>
+        <p>&copy; 2024 Futbol Nacional. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Juguemos de Memoria</title>
+    <link rel="icon" type="image/png" href="logo inicio.jpeg">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            background-color: white;
+            color: black;
+        }
+
+        header {
+            margin: 50px 0;
+            background-color: lime;
+            width: 100%;
+            padding: 20px 0;
+        }
+
+        #highlight-box {
+            background-color: lime;
+            padding: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+        #highlight-box a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            margin-right: 15px;
+        }
+
+        #more-sports-dropdown {
+            background-color: lime;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        #more-sports-dropdown select {
+            background-color: white;
+            color: black;
+        }
+
+        #more-sports-dropdown select option {
+            color: black;
+        }
+
+        .news-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .large-news-title {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .main-news-image {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+            margin-top: 20px;
+            object-position: center center;
+        }
+
+        .author-info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .author-photo {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-right: 20px;
+        }
+
+        .author-details {
+            text-align: left;
+        }
+
+        .news-content {
+            width: 80%;
+            margin: 20px auto;
+            text-align: left;
+            font-size: 30px; /* Cambiado a un tamaño de fuente más grande */
+            line-height: 1.5; /* Ajuste del interlineado para una mejor legibilidad */
+        }
+
+        .news-content p:first-of-type:first-letter {
+            font-size: 100px;
+            text-transform: uppercase;
+            float: left;
+            margin-right: 5px;
+        }
+
+        .news-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #777;
+        }
+
+        @media screen and (max-width: 768px) {
+            .mosaico-item {
+                flex: 0 0 calc(100% - 20px);
+            }
+
+            .subcuadro {
+                width: calc(100% - 20px);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1 style="color: white;">Golf</h1>
+        <div id="highlight-box">
+            <div>
+                <a href="A index.html" style="font-size: 18px;">Página principal</a>
+                <a href="A Futbol internacional.html" style="font-size: 18px;">Fútbol Internacional</a>
+                <a href="A Golf.html" style="font-size: 18px;">Golf</a>
+                <a href="A Tennis.html" style="font-size: 18px;">Tenis</a>
+                <a href="A Quienes somos.html" style="font-size: 18px;">Quiénes somos</a>
+            </div>
+            <div id="more-sports-dropdown">
+                <select>
+                    <option value="#" selected>Más deportes</option>
+                    <option value="A index.html">Página principal</option>
+                    <option value="A Futbol Internaciona.html">Fútbol Internacional</option>
+                    <option value="A Golf.html">Golf</option>
+                    <option value="A Tenni.html">Tenis</option>
+                    <option value="A Quienes somos.html">Quiénes somos</option>
+                </select>
+            </div>
+        </div>
+    </header>
+
+    <div class="news-container">
+        <!-- News content would go here if you decide to add news in the future -->
+    </div>
+
+    <div class="large-news-title">
+        <h2>Emiliano Grillo se mete en la pelea por el Sony Open in Hawaii de cara a la ronda final</h2>
+        <div class="news-header">Con una gran vuelta de 63 golpes y de ocho birdies, el Profesional de la Provincia del Chaco trepó al noveno puesto para quedar a cuatro golpes de distancia de los punteros actuales.</div>
+    </div>
+
+    <img class="main-news-image" src="Grillo.jpg" alt="Imagen Principal de la Noticia">
+
+    <div class="author-info">
+        <img class="author-photo" src="José Web.jpeg" alt="Foto del Autor">
+        <div class="author-details">
+            <p>José Ignacio Avila</p>
+            <p>Fecha de Publicación: 14 de enero de 2024 | Hora: 18:07</p>
+        </div>
+    </div>
+
+    <div class="news-content">
+        <p>
+            Con birdies en los hoyos 10, 12, 18, 1, 3, 5, 8 y 9 y solo un bogey en el 4 (salió por el tee del 10), el argentino encendió la esperanza de quedarse con el título de Hawaii, el segundo del año para el PGA TOUR, que supo ganar su coterráneo Fabián Gómez en 2016.
+        </p>
+        <p>
+            Grillo suma 200 golpes, diez bajo el par del Waialae CC, con registros diarios de 71, 66, 63, y se ubica en el noveno puesto a cuatro golpes de distancia de los punteros del momento, Keegan Bradley, hoy 63, hoy Grayson Murray, 64. Por su parte, Alejandro Tosti no tuvo el mejor día y finalizó con 77 golpes para alejarse de las posibilidades de los puestos principales con un acumulado de 213.
+        </p>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Golf. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+</html>
+
+
+
+
